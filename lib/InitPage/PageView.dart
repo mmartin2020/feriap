@@ -2,8 +2,8 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:feriap/InitPage/PageData.dart';
-import 'package:feriap/InitPage/PageSlider.dart';
+import 'package:Feriap/InitPage/PageData.dart';
+import 'package:Feriap/InitPage/PageSlider.dart';
 
 class InitPage extends StatefulWidget {
   @override
@@ -44,6 +44,7 @@ class _InitPageState extends State<InitPage> {
 
   @override
   Widget build(BuildContext context) {
+    var media = MediaQuery.of(context).size;
     return Stack(alignment: AlignmentDirectional.bottomCenter, children: [
       PageView.builder(
         onPageChanged: _onPageChanged,
@@ -54,7 +55,7 @@ class _InitPageState extends State<InitPage> {
                 elements[i]["title"],
                 elements[i]["subtitle"],
                 elements[i]["id"])
-            .widgets,
+            .widgets(context),
       ),
       Padding(
         padding: const EdgeInsets.all(20.0),
@@ -75,7 +76,11 @@ class _InitPageState extends State<InitPage> {
             ElevatedButton(
               onPressed: () {},
               child: Text('Empezar a explorar'),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                      Theme.of(context).primaryColor)),
             ),
+            SizedBox(height: media.height * 0.037),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -83,13 +88,15 @@ class _InitPageState extends State<InitPage> {
                     onPressed: () {},
                     child: Text(
                       'Registrarse',
-                      style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                      style: TextStyle(
+                          color: Colors.grey, fontSize: media.height * 0.015),
                     )),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.pushNamed(context, '/login'),
                     child: Text(
                       'Iniciar sesión',
-                      style: TextStyle(color: Colors.grey, fontSize: 12.0),
+                      style: TextStyle(
+                          color: Colors.grey, fontSize: media.height * 0.015),
                     )),
               ],
             ),
@@ -110,8 +117,8 @@ class Slider extends StatelessWidget {
       curve: Curves.easeInOutCubic,
       duration: Duration(microseconds: 200),
       margin: EdgeInsets.only(left: 8.0),
-      height: state ? 12 : 10,
-      width: state ? 12 : 10,
+      height: state ? 8 : 6,
+      width: state ? 8 : 6,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: state ? Theme.of(context).primaryColor : Colors.grey,

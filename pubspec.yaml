@@ -1,4 +1,4 @@
-name: feriap
+name: Feriap
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -30,10 +30,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.1.4
   http:
+  flutter_svg: ^0.22.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.0"
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/images/logo_96x96.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -49,6 +55,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/assets/images/
+  
+
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
