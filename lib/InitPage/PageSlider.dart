@@ -33,43 +33,42 @@ class PageSlider {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   AspectRatio(
-                      aspectRatio: 16 / 12,
-                      child: this._id == 1
-                          ? Container(
-                              height: double.infinity,
-                              child: Stack(
-                                  alignment: AlignmentDirectional.topCenter,
-                                  children: [
-                                    Positioned(
-                                      bottom: 0.0,
-                                      child: SvgPicture.asset(this._image,
-                                          matchTextDirection: true,
-                                          placeholderBuilder: (_) =>
-                                              CircularProgressIndicator(),
-                                          width: media.width * 0.3,
-                                          height: media.width * 0.3),
-                                    ),
-                                    Positioned(
-                                      top: 0.0,
-                                      right: 0.0,
-                                      child: SvgPicture.asset(
-                                          "lib/assets/images/delivery_2.svg",
-                                          matchTextDirection: true,
-                                          placeholderBuilder: (_) =>
-                                              CircularProgressIndicator(),
-                                          width: media.width * 0.4,
-                                          height: media.width * 0.4),
-                                    ),
-                                  ]),
-                            )
-                          : Container(
-                              child: SvgPicture.asset(
-                                this._image,
-                                matchTextDirection: true,
-                                placeholderBuilder: (_) =>
-                                    CircularProgressIndicator(),
-                              ),
-                            )),
+                    aspectRatio: 16 / 12,
+                    child: this._id == 1
+                        ? Container(
+                            height: double.infinity,
+                            child: Stack(
+                                alignment: AlignmentDirectional.topCenter,
+                                children: [
+                                  Positioned(
+                                    bottom: 0.0,
+                                    child: SvgPicture.asset(this._image,
+                                        matchTextDirection: true,
+                                        placeholderBuilder: (_) =>
+                                            CircularProgressIndicator(),
+                                        width: media.width * 0.3,
+                                        height: media.width * 0.3),
+                                  ),
+                                  Positioned(
+                                    top: 0.0,
+                                    right: 0.0,
+                                    child: SvgPicture.asset(
+                                        "lib/assets/images/delivery_2.svg",
+                                        matchTextDirection: true,
+                                        placeholderBuilder: (_) =>
+                                            CircularProgressIndicator(),
+                                        width: media.width * 0.4,
+                                        height: media.width * 0.4),
+                                  ),
+                                ]),
+                          )
+                        : SvgPicture.asset(this._image,
+                           
+                            placeholderBuilder: (_) =>
+                                CircularProgressIndicator(),
+                            width: media.width * 0.1,
+                            height: media.width * 0.1),
+                  ),
                   SizedBox(
                     height: media.height * 0.05,
                   ),
