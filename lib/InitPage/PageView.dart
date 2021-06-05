@@ -1,9 +1,10 @@
 // Inipage
 import 'dart:async';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:Feriap/InitPage/PageData.dart';
 import 'package:Feriap/InitPage/PageSlider.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class InitPage extends StatefulWidget {
   @override
@@ -74,7 +75,11 @@ class _InitPageState extends State<InitPage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                SharedPreferences preferences =
+                    await SharedPreferences.getInstance();
+                preferences.setBool('key', true);
+              },
               child: Text('Empezar a explorar'),
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
@@ -82,22 +87,16 @@ class _InitPageState extends State<InitPage> {
             ),
             SizedBox(height: media.height * 0.037),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Registrarse',
-                      style: TextStyle(
-                          color: Colors.grey, fontSize: media.height * 0.015),
-                    )),
-                TextButton(
-                    onPressed: () => Navigator.pushNamed(context, '/login'),
-                    child: Text(
-                      'Iniciar sesión',
-                      style: TextStyle(
-                          color: Colors.grey, fontSize: media.height * 0.015),
-                    )),
+                Expanded(
+                  child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Quiero crear una cuenta',
+                        style: TextStyle(
+                            color: Colors.grey, fontSize: media.height * 0.015),
+                      )),
+                ),
               ],
             ),
           ],
