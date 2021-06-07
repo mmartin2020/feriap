@@ -1,5 +1,6 @@
 // Inipage
 import 'dart:async';
+import 'package:Feriap/Login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:Feriap/InitPage/PageData.dart';
 import 'package:Feriap/InitPage/PageSlider.dart';
@@ -78,7 +79,8 @@ class _InitPageState extends State<InitPage> {
               onPressed: () async {
                 SharedPreferences preferences =
                     await SharedPreferences.getInstance();
-                preferences.setBool('key', true);
+                preferences.setBool('key', false);
+                Get.to(Login());
               },
               child: Text('Empezar a explorar'),
               style: ButtonStyle(
@@ -107,7 +109,7 @@ class _InitPageState extends State<InitPage> {
 }
 
 class Slider extends StatelessWidget {
-  bool state;
+  final bool state;
   Slider(this.state);
 
   @override

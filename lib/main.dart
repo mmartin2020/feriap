@@ -1,17 +1,18 @@
-import 'package:Feriap/InitPage/PageView.dart';
-import 'package:Feriap/Login/login.dart';
-import 'package:Feriap/Models/initPageBindings.dart';
-import 'package:Feriap/Pages/pages.dart';
+
+import 'package:Feriap/Pages/pageroutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'Models/initPageConroller.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
-main() => runApp(GetMaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFFDB5C00),
-      ),
-      debugShowCheckedModeBanner: false,
-      initialBinding: InitPageBindings(),
-      home: InitPageController().getPrefs() ? Login() : InitPage(),
-      getPages: routes,
-    ));
+main() {
+  // final bool state = await _getPersistence()??true;
+
+  runApp(GetMaterialApp(
+    theme: ThemeData(
+      primaryColor: Color(0xFFDB5C00),
+    ),
+    debugShowCheckedModeBanner: false,
+    initialRoute: '/HomeView',
+    getPages: routes,
+  ));
+}

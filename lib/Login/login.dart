@@ -4,6 +4,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.2),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -15,7 +16,7 @@ class Login extends StatelessWidget {
               Positioned(
                   child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColorDark.withOpacity(0.3),
+                  color: Theme.of(context).primaryColorDark.withOpacity(0.4),
                   shape: BoxShape.circle,
                 ),
                 width: MediaQuery.of(context).size.width * 0.9,
