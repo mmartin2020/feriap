@@ -1,6 +1,9 @@
 import 'package:Feriap/Pages/pages/Home.dart';
+import 'package:Feriap/Pages/pages/offer.dart';
 import 'package:Feriap/Pages/pages/profil.dart';
+import 'package:Feriap/Pages/pages/shop.dart';
 import 'package:Feriap/Pages/pages/shopping_cart.dart';
+import 'package:Feriap/Pages/textdata.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -10,7 +13,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
-  VoidCallback _indexCallBack(int i) {
+  _indexCallBack(int i) {
     setState(() {
       _currentIndex = i;
     });
@@ -18,41 +21,50 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex,
         children: [
           Home(),
+          Shop(),
           ShoppingCart(),
+          Offer(),
           Profil(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).primaryColor,
-        selectedIconTheme: IconThemeData(size: 40.0),
+        selectedIconTheme: IconThemeData(size: 20.0),
         currentIndex: _currentIndex,
         onTap: _indexCallBack,
-        backgroundColor: Colors.white.withOpacity(0.5),
         type: BottomNavigationBarType.fixed,
         unselectedIconTheme:
             IconThemeData(color: Colors.blueGrey.withOpacity(0.5)),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: 'Home',
+            label: TextData.TEXT_LABEL_INICIO,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: TextData.TEXT_LABEL_SHOP,
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart_outlined,
             ),
-            label: 'Cart',
+            label: TextData.TEXT_LABEL_CARRITO,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined), label: 'Perfil')
+            icon: Icon(Icons.local_offer_outlined),
+            label: TextData.TEXT_LABEL_OFFER,
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_outlined),
+              label: TextData.TEXT_LABEL_PROFIL)
         ],
       ),
     );
   }
 }
-
-class Shopping_cart {}
