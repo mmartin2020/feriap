@@ -1,4 +1,4 @@
-import 'package:Feriap/Pages/pages/Home.dart';
+import 'package:Feriap/Pages/pages/explore.dart';
 import 'package:Feriap/Pages/pages/offer.dart';
 import 'package:Feriap/Pages/pages/profil.dart';
 import 'package:Feriap/Pages/pages/shop.dart';
@@ -6,12 +6,12 @@ import 'package:Feriap/Pages/pages/shopping_cart.dart';
 import 'package:Feriap/Pages/textdata.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<Home> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<Home> {
   int _currentIndex = 0;
   _indexCallBack(int i) {
     setState(() {
@@ -21,12 +21,11 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          Home(),
+          Explore(),
           Shop(),
           ShoppingCart(),
           Offer(),

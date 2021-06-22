@@ -1,9 +1,9 @@
 // Inipage
 import 'dart:async';
-import 'package:Feriap/Login/login.dart';
+import 'package:Feriap/Pages/account/login.dart';
+import 'package:Feriap/initialPage/PageData.dart';
+import 'package:Feriap/initialPage/PageSlider.dart';
 import 'package:flutter/material.dart';
-import 'package:Feriap/InitPage/PageData.dart';
-import 'package:Feriap/InitPage/PageSlider.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
