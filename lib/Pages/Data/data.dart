@@ -1,10 +1,9 @@
 Map<String, dynamic> productos = {
   "descubrir": {
     {
-      'titulo': 'Esparragos',
-      'subtitulo': "Papas Fritas Lay's Corte Americano sabor original",
-      'image':
-          'lib/assets/images/papafrita1.jpg',
+      'titulo': 'Papas Fritas',
+      'subtitulo': "Papas Lay's Corte Americano sabor original",
+      'image':'lib/assets/images/papafrita1.jpg',
       'calificacion': '2.8 ',
       'clasificacion_total': '',
       'precio': '2.500',
@@ -14,8 +13,7 @@ Map<String, dynamic> productos = {
     {
       'titulo': 'Mermelada',
       'subtitulo': 'Mermelada Arandano',
-      'image':
-          'lib/assets/images/mermelada1.jpg',
+      'image':'lib/assets/images/mermelada1.jpg',
       'calificacion': '1.2 ',
       'clasificacion_total': '34',
       'precio': '2.750',
@@ -24,8 +22,7 @@ Map<String, dynamic> productos = {
     {
       'titulo': 'Jugo watts.',
       'subtitulo': 'Néctar WATTS durazno 1.5LT.',
-      'image':
-          'lib/assets/images/jugo1.jpg',
+      'image':'lib/assets/images/jugo1.jpg',
       'calificacion': '2.8 ',
       'clasificacion_total': '209 ',
       'precio': '1.210',

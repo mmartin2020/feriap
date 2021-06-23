@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class CreateAccount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -16,6 +17,7 @@ class CreateAccount extends StatelessWidget {
           padding: const EdgeInsets.only(left: 20.0, right: 20.0),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            SizedBox(height: media * 0.07),
             Text(
               'Creación de cuenta',
               style: TextStyle(
@@ -23,96 +25,69 @@ class CreateAccount extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 10.0),
-            Container(
-                child: TextField(
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
-                      labelText: 'Nombre Completo',
-                      labelStyle: TextStyle(color: Colors.black),
-                      prefix: Icon(
-                        Icons.person,
-                      ),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black)),
-                    ))),
-            SizedBox(height: 10.0),
-            Container(
-                child: TextField(
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                      labelText: 'Email',
-                      labelStyle: TextStyle(color: Colors.black),
-                      prefix: Icon(
-                        Icons.email_outlined,
-                      ),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                    ))),
-            SizedBox(height: 10.0),
-            Container(
-                child: TextField(
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                      labelText: 'Teléfono',
-                      labelStyle: TextStyle(color: Colors.black),
-                      prefix: Icon(
-                        Icons.phone,
-                      ),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                    ))),
-            SizedBox(height: 10.0),
-            Container(
-                child: TextField(
-                    obscureText: true,
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                      labelText: 'Contraseña',
-                      labelStyle: TextStyle(color: Colors.black),
-                      prefix: Icon(
-                        Icons.lock,
-                      ),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                    ))),
-            SizedBox(height: 10.0),
-            Container(
-                child: TextField(
-                    obscureText: true,
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    cursorColor: Colors.black,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                      labelText: 'Repetir la contraseña',
-                      labelStyle: TextStyle(color: Colors.black),
-                      prefix: Icon(
-                        Icons.lock,
-                      ),
-                      border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey)),
-                    ))),
-            SizedBox(height: 10.0),
+            SizedBox(height: media * 0.1),
+
+            // textInput name
+            _inputT(
+                Icon(
+                  Icons.person,
+                  size: 12.0,
+                ),
+                'Nombre Completo',
+                context),
+
+            SizedBox(height: 20.0),
+
+            // email
+            _inputT(
+                Icon(
+                  Icons.person,
+                  size: 12.0,
+                ),
+                'Correo',
+                context),
+
+            SizedBox(height: 20.0),
+
+            // Teléfono
+            _inputT(
+                Icon(
+                  Icons.phone,
+                  size: 12.0,
+                ),
+                'Teléfono',
+                context),
+
+            SizedBox(height: 20.0),
+
+            // Contraseña
+            _inputT(
+                Icon(
+                  Icons.lock,
+                  size: 12.0,
+                ),
+                'Contraseña',
+                context,
+                true),
+
+            SizedBox(height: 20.0),
+
+            // Repetir la contraseña
+            _inputT(
+                Icon(
+                  Icons.lock,
+                  size: 12.0,
+                ),
+                'Repetir la contraseña',
+                context,
+                true),
+            SizedBox(height: 40.0),
+
             ElevatedButton(
               style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0))),
                   backgroundColor: MaterialStateProperty.all(
                       Theme.of(context).primaryColor)),
               child: Text('Registrarse'),
@@ -120,6 +95,13 @@ class CreateAccount extends StatelessWidget {
                 Get.dialog(AlertDialog(
                   actions: [
                     ElevatedButton(
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(20.0))),
+                        ),
                         onPressed: () => Get.offAllNamed('/login'),
                         child: Text('Acceptar'))
                   ],
@@ -133,17 +115,20 @@ class CreateAccount extends StatelessWidget {
                 ));
               },
             ),
-            SizedBox(height: 30.0),
-            Text(
-                'Al presionar registrarse estas acceptando las codiciones y terminos para utilizar nuestro servicio ',
-                textAlign: TextAlign.justify,
-                style: TextStyle(color: Colors.black)),
+            SizedBox(height: media * 0.1),
+            Center(
+              child: Text(
+                  'Al presionar registrarse estas acceptando las codiciones y terminos para utilizar nuestro servicio ',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(color: Colors.black)),
+            ),
             SizedBox(height: 10.0),
             Center(
               child: GestureDetector(
                 onTap: () => Get.toNamed('/condiciones'),
                 child: Text('Revisar termino y condiciones',
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                         color: Colors.black,
                         decoration: TextDecoration.underline)),
               ),
@@ -152,6 +137,34 @@ class CreateAccount extends StatelessWidget {
           ]),
         ),
       ),
+    );
+  }
+
+  Widget _inputT(Icon icon, String text, BuildContext context, [bool obscur]) {
+    return Container(
+      child: TextField(
+        textInputAction: TextInputAction.next,
+          style: TextStyle(
+            fontSize: 14.0,decoration: TextDecoration.none
+          ),
+          keyboardType: TextInputType.emailAddress,
+          cursorColor: Colors.grey,
+          obscureText: obscur ?? false,
+          decoration: InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.all(14),
+              fillColor: Colors.grey.withOpacity(0.2),
+              filled: true,
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              prefix: icon,
+              hintText: text,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20.0),
+                borderSide: BorderSide.none,
+              ))),
     );
   }
 }

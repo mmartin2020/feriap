@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -26,12 +27,12 @@ class Login extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 70.0,
-                ),
+                SizedBox(height: media * 0.2),
                 Text(
                   'Bienvenido',
-                  style: TextStyle(fontSize: 40.0),
+                  style: TextStyle(
+                    fontSize: 50.0,
+                  ),
                 ),
                 SizedBox(
                   height: 10.0,
@@ -39,7 +40,7 @@ class Login extends StatelessWidget {
                 Text('Ingresa tus datos para iniciar',
                     style: TextStyle(color: Colors.grey)),
                 SizedBox(
-                  height: 60.0,
+                  height: media * 0.1,
                 ),
                 Container(
                     child: Column(
@@ -73,7 +74,7 @@ class Login extends StatelessWidget {
                                           BorderRadius.circular(20.0)))),
                     ),
                     SizedBox(
-                      height: 10.0,
+                      height: media * 0.05,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -128,9 +129,7 @@ class Login extends StatelessWidget {
                       onPressed: () {},
                       icon: Icon(Icons.g_mobiledata_outlined),
                     ),
-                    SizedBox(
-                      height: 75.0,
-                    ),
+                    SizedBox(height: media * 0.07),
                     GestureDetector(
                         onTap: () => Get.toNamed('/forgetpassword'),
                         child: Center(
@@ -141,6 +140,7 @@ class Login extends StatelessWidget {
                                 fontWeight: FontWeight.normal),
                           ),
                         )),
+                    SizedBox(height: 5.0),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -176,13 +176,14 @@ class Login extends StatelessWidget {
   Widget _inputT(Icon icon, String text, bool obscur, BuildContext context) {
     return Container(
       child: TextField(
-          style: TextStyle(fontSize: 13.0),
+          textInputAction: TextInputAction.next,
+          style: TextStyle(fontSize: 14.0, decoration: TextDecoration.none),
           keyboardType: TextInputType.emailAddress,
           cursorColor: Colors.grey,
           obscureText: obscur ?? false,
           decoration: InputDecoration(
               isDense: true,
-              contentPadding: EdgeInsets.all(12),
+              contentPadding: EdgeInsets.all(14),
               fillColor: Colors.grey.withOpacity(0.2),
               filled: true,
               focusedBorder: OutlineInputBorder(
