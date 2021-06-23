@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MasVendido extends StatelessWidget {
+class Categoria extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class MasVendido extends StatelessWidget {
           itemCount: 1,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-              title: Text('Recomendado'),
+              title: Text('categoria'),
             );
           },
         ),
