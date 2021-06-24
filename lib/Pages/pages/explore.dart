@@ -33,15 +33,22 @@ class Explore extends StatelessWidget {
               Column(
                 children: [
                   IconButton(
+                    highlightColor: Colors.grey,
+                    splashColor: Colors.grey[100],
+                    constraints: BoxConstraints(maxHeight: 20.0),
                     onPressed: () {},
                     icon: Icon(
-                      Icons.map,
-                      size: 20.0,
+                      Icons.add_location_alt_rounded,
+                      textDirection: TextDirection.ltr,
+                      size: 15.0,
                     ),
                   ),
                   Text('Americo Vespucio #0484',
                       textAlign: TextAlign.justify,
                       style: TextStyle(fontSize: 10.0)),
+                  Text('Dirección de despacho',
+                      textAlign: TextAlign.start,
+                      style: TextStyle(fontSize: 7.0)),
                 ],
               )
             ],
@@ -203,6 +210,7 @@ Widget _listMasVendidos() {
     height: 230,
     child: //
         ListView.builder(
+      shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       itemCount: 3,
@@ -217,6 +225,8 @@ Widget _listMasVendidos() {
 
         return Container(
             child: ListTile(
+                isThreeLine: true,
+                dense: true,
                 title: Text(titulo),
                 subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

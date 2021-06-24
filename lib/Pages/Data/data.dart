@@ -3,17 +3,17 @@ Map<String, dynamic> productos = {
     {
       'titulo': 'Papas Fritas',
       'subtitulo': "Papas Lay's Corte Americano sabor original",
-      'image':'lib/assets/images/papafrita1.jpg',
+      'image': 'lib/assets/images/papafrita1.jpg',
       'calificacion': '2.8 ',
       'clasificacion_total': '',
       'precio': '2.500',
       'medida': 'c/u',
-      'marca':'lays'
+      'marca': 'lays'
     },
     {
       'titulo': 'Mermelada',
       'subtitulo': 'Mermelada Arandano',
-      'image':'lib/assets/images/mermelada1.jpg',
+      'image': 'lib/assets/images/mermelada1.jpg',
       'calificacion': '1.2 ',
       'clasificacion_total': '34',
       'precio': '2.750',
@@ -22,12 +22,12 @@ Map<String, dynamic> productos = {
     {
       'titulo': 'Jugo watts.',
       'subtitulo': 'Néctar WATTS durazno 1.5LT.',
-      'image':'lib/assets/images/jugo1.jpg',
+      'image': 'lib/assets/images/jugo1.jpg',
       'calificacion': '2.8 ',
       'clasificacion_total': '209 ',
       'precio': '1.210',
       'medida': 'c/u',
-      'marca':'watts'
+      'marca': 'watts'
     }
   },
   "masvendido": {
@@ -50,12 +50,12 @@ Map<String, dynamic> productos = {
       'medida': 'c/u'
     },
     {
-      'titulo': 'Pan',
-      'subtitulo': 'Pan marraqueta',
-      'image': 'lib/assets/images/pan1.jpg',
+      'titulo': 'Azúcar',
+      'subtitulo': 'azúcar de 1kg IANS',
+      'image': 'lib/assets/images/azucar1.jpg',
       'calificacion': '3.5',
       'clasificacion_total': '502',
-      'precio': '1.100',
+      'precio': '7.700',
       'medida': 'kg'
     }
   },
@@ -84,7 +84,7 @@ Map<String, dynamic> productos = {
       'titulo': 'Esparragos',
       'subtitulo': 'Verdura fresca',
       'image':
-          'https://asset1.cxnmarksandspencer.com/is/image/mands/010421_foodslp_update?wid=900&qlt=70&fmt=pjpeg',
+      'https://asset1.cxnmarksandspencer.com/is/image/mands/010421_foodslp_update?wid=900&qlt=70&fmt=pjpeg',
       'calificacion': '',
       'clasificacion_total': '',
       'precio': '1.500',

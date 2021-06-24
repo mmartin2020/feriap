@@ -30,6 +30,7 @@ class _HomeViewState extends State<Home> {
           ShoppingCart(),
           Offer(),
           Profil(),
+         
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

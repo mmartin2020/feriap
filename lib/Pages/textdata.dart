@@ -6,8 +6,7 @@ class TextData extends GetxController {
   static String TEXT_LABEL_INICIO = "Inicio";
   static String TEXT_LABEL_SHOP = "Tienda";
   static String TEXT_LABEL_OFFER = "Ofertas";
-  static String TEXT_LABEL_PROFIL = "Ofertas";
+  static String TEXT_LABEL_PROFIL = "MiPerfil";
 
   TextData.Instance(TextData);
-  
 }
