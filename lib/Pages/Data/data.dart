@@ -1,6 +1,7 @@
 Map<String, dynamic> productos = {
   "descubrir": {
     {
+      'idproducts': 'A01',
       'titulo': 'Papas Fritas',
       'subtitulo': "Papas Lay's Corte Americano sabor original",
       'image': 'lib/assets/images/papafrita1.jpg',
@@ -11,6 +12,7 @@ Map<String, dynamic> productos = {
       'marca': 'lays'
     },
     {
+      'idproducts': 'A02',
       'titulo': 'Mermelada',
       'subtitulo': 'Mermelada Arandano',
       'image': 'lib/assets/images/mermelada1.jpg',
@@ -20,6 +22,7 @@ Map<String, dynamic> productos = {
       'medida': 'c/u'
     },
     {
+      'idproducts': 'A03',
       'titulo': 'Jugo watts.',
       'subtitulo': 'Néctar WATTS durazno 1.5LT.',
       'image': 'lib/assets/images/jugo1.jpg',
@@ -28,10 +31,54 @@ Map<String, dynamic> productos = {
       'precio': '1.210',
       'medida': 'c/u',
       'marca': 'watts'
+    },
+    {
+      'idproducts': 'A04',
+      'titulo': 'Detergente líquido Revitacolor',
+      'subtitulo': 'líquido Revitacolor 2.8L',
+      'image': 'lib/assets/images/detergente1.jpg',
+      'calificacion': '2.2 ',
+      'clasificacion_total': '30',
+      'precio': '11.490',
+      'medida': 'c/u'
+    },
+    {
+      'idproducts': 'A05',
+      'titulo': 'Aceite Vegetal Botella',
+      'subtitulo': 'Aceite Vegetal 1LT.',
+      'image': 'lib/assets/images/aceite1.jpg',
+      'calificacion': '2.8 ',
+      'clasificacion_total': '10 ',
+      'precio': '1.610',
+      'medida': 'c/u',
+      'marca': 'Maravila'
+    },
+    {
+      'idproducts': 'A06',
+      'titulo': 'Ensalada primavera',
+      'subtitulo': 'Ensalada 500g.',
+      'image': 'lib/assets/images/primavera1.jpg',
+      'calificacion': '3.8 ',
+      'clasificacion_total': '345 ',
+      'precio': '1.100',
+      'medida': 'c/u',
+      'marca': 'Frut del maipo'
+    },
+    {
+      'idproducts': 'A07',
+      'titulo': 'Yoghurt con cereal',
+      'subtitulo': 'Yoghurt + cereal con cucharitas',
+      'image': 'lib/assets/images/yogurt+cereal1.png',
+      'calificacion': '4.8 ',
+      'clasificacion_total': '560 ',
+      'precio': '500',
+      'medida': 'c/u',
+      'marca': ''
     }
   },
   "masvendido": {
     {
+      'idproducts': 'A08',
       'titulo': 'Coca-cola',
       'subtitulo': 'Bebida 1,5 lt desechable',
       'image': 'lib/assets/images/bebida1.jpg',
@@ -41,6 +88,7 @@ Map<String, dynamic> productos = {
       'medida': 'c/u'
     },
     {
+      'idproducts': '09',
       'titulo': 'Café instantáneo',
       'subtitulo': 'Nescafé tradición lata 170 g',
       'image': 'lib/assets/images/cafe1.jpg',
@@ -50,6 +98,7 @@ Map<String, dynamic> productos = {
       'medida': 'c/u'
     },
     {
+      'idproducts': 'A010',
       'titulo': 'Azúcar',
       'subtitulo': 'azúcar de 1kg IANS',
       'image': 'lib/assets/images/azucar1.jpg',
@@ -59,40 +108,10 @@ Map<String, dynamic> productos = {
       'medida': 'kg'
     }
   },
-  "recomendado": {
-    {
-      'titulo': 'Esparragos',
-      'subtitulo': 'Verdura fresca',
-      'image':
-          'https://asset1.cxnmarksandspencer.com/is/image/mands/010421_foodslp_update?wid=900&qlt=70&fmt=pjpeg',
-      'calificacion': '',
-      'clasificacion_total': '',
-      'precio': '1.500',
-      'medida': 'kg'
-    },
-    {
-      'titulo': 'Esparragos',
-      'subtitulo': 'Verdura fresca',
-      'image':
-          'https://asset1.cxnmarksandspencer.com/is/image/mands/010421_foodslp_update?wid=900&qlt=70&fmt=pjpeg',
-      'calificacion': '',
-      'clasificacion_total': '',
-      'precio': '1.500',
-      'medida': 'kg'
-    },
-    {
-      'titulo': 'Esparragos',
-      'subtitulo': 'Verdura fresca',
-      'image':
-      'https://asset1.cxnmarksandspencer.com/is/image/mands/010421_foodslp_update?wid=900&qlt=70&fmt=pjpeg',
-      'calificacion': '',
-      'clasificacion_total': '',
-      'precio': '1.500',
-      'medida': 'kg'
-    }
-  },
+//  Variedad de productos
   "variedades": {
     {
+      'idproducts': 'A011',
       'titulo': 'Cereales y patatas',
       'subtitulo': 'Cereales y patatas',
       'image': 'lib/assets/images/food5.jpg',
@@ -103,6 +122,7 @@ Map<String, dynamic> productos = {
       'marca': ''
     },
     {
+      'idproducts': 'A012',
       'titulo': 'Condimentos',
       'subtitulo': 'Condimento',
       'image': 'lib/assets/images/food4.jpg',
@@ -113,6 +133,7 @@ Map<String, dynamic> productos = {
       'marca': ''
     },
     {
+      'idproducts': 'A013',
       'titulo': 'Frutas',
       'subtitulo': 'Frutas',
       'image': 'lib/assets/images/food3.jpg',
@@ -123,6 +144,7 @@ Map<String, dynamic> productos = {
       'marca': ''
     },
     {
+      'idproducts': 'A014',
       'titulo': 'Legumbres',
       'subtitulo': 'Legumbres',
       'image': 'lib/assets/images/food1.jpg',
@@ -133,6 +155,7 @@ Map<String, dynamic> productos = {
       'marca': ''
     },
     {
+      'idproducts': 'A015',
       'titulo': 'Proteinas y Vegetales',
       'subtitulo': 'Proteinas y Vegetales',
       'image': 'lib/assets/images/food7.jpg',
@@ -142,5 +165,43 @@ Map<String, dynamic> productos = {
       'medida': '',
       'marca': ''
     }
-  }
+  },
+// Recomendada
+  "recomendado": {
+    "detergente": {
+      {
+        'idproducts': 'A016',
+        'titulo': 'Detergente VALOR magic',
+        'subtitulo': "detergente 5LT",
+        'image': 'lib/assets/images/detergente3.jpg',
+        'calificacion': '3.8 ',
+        'clasificacion_total': '',
+        'precio': '2.200',
+        'medida': 'c/u',
+        'marca': 'Magic'
+      },
+      {
+        'idproducts': 'A017',
+        'titulo': 'Detergente matic polvo',
+        'subtitulo': "polvo 15 kilos bolsa",
+        'image': 'lib/assets/images/detergente2.jpg',
+        'calificacion': '3.8 ',
+        'clasificacion_total': '',
+        'precio': '20.990',
+        'medida': 'c/u',
+        'marca': 'magic'
+      },
+      {
+        'idproducts': 'A018',
+        'titulo': 'Pack Detergente',
+        'subtitulo': "Pack detergente 3lt OMO",
+        'image': 'lib/assets/images/detergente4.jpg',
+        'calificacion': '3.8 ',
+        'clasificacion_total': '',
+        'precio': '14.500',
+        'medida': 'c/u',
+        'marca': 'Omo'
+      },
+    }
+  },
 };

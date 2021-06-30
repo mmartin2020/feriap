@@ -2,8 +2,10 @@ import 'package:Feriap/Pages/account/createaccount.dart';
 import 'package:Feriap/Pages/account/forgetpassword.dart';
 import 'package:Feriap/Pages/account/login.dart';
 import 'package:Feriap/Pages/pages/Home/Home.dart';
+import 'package:Feriap/Pages/pages/administrarmicuenta.dart';
 import 'package:Feriap/Pages/pages/condiciones.dart';
 import 'package:Feriap/Pages/pages/details/categoria.dart';
+import 'package:Feriap/Pages/pages/details/detailsProducts.dart';
 import 'package:Feriap/Pages/pages/details/masVendido.dart';
 import 'package:Feriap/Pages/pages/offer.dart';
 import 'package:Feriap/Pages/pages/search.dart';
@@ -75,6 +77,22 @@ List<GetPage<dynamic>> routes = [
       name: '/details/categoria',
       page: () => Categoria(),
       title: '/details/categoria',
+      unknownRoute: GetPage(
+        name: '/login',
+        page: () => Login(),
+      )),
+  GetPage(
+      name: '/admincuenta',
+      page: () => admincuenta(),
+      title: '/admincuenta',
+      unknownRoute: GetPage(
+        name: '/login',
+        page: () => Login(),
+      )),
+  GetPage(
+      name: '/detailsproducts',
+      page: () => detailsproducts(),
+      title: '/detailsproducts',
       unknownRoute: GetPage(
         name: '/login',
         page: () => Login(),

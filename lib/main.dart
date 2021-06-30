@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 main() {
   runApp(GetMaterialApp(
     theme: ThemeData(
-     visualDensity: VisualDensity.adaptivePlatformDensity,
-      buttonColor: Color(0xFFDB5C00),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       accentColor: Color(0xFFDB5C00).withOpacity(0.1),
       splashColor: Color(0xFFDB5C00).withOpacity(0.2),
       primaryColor: Color(0xFFDB5C00),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:Feriap/Pages/Data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -75,7 +77,7 @@ class Explore extends StatelessWidget {
 
                     //  Variedad de productos
                     _textTitle(
-                        'Variedad de productos', 17.0, fila('categoria')),
+                        'Variedades de productos', 17.0, fila('categoria')),
                     SizedBox(height: 20.0),
                     _listVariedades(),
                   ]),
@@ -103,6 +105,8 @@ Widget _textTitle(String text, double _fontSize, [Widget _showAll]) {
 //lista nuevas cosas
 Widget _listNuevasCosas() {
   List descubrir = productos["descubrir"].toList();
+  final long = descubrir.length;
+  final random_list = aletorio(long);
 
   return Container(
     height: 240,
@@ -111,92 +115,120 @@ Widget _listNuevasCosas() {
       scrollDirection: Axis.horizontal,
       itemCount: descubrir.length,
       itemBuilder: (BuildContext context, int index) {
-        String _txtDescripcionPoroductos = descubrir[index]["subtitulo"];
-        String price = descubrir[index]["precio"];
-        String unidad = descubrir[index]["medida"];
-        String image = descubrir[index]["image"];
-        String titulo = descubrir[index]["titulo"];
-        String calif = descubrir[index]["calificacion"];
-        String califtotal = descubrir[index]["clasificacion_total"];
+        String _txtDescripcionPoroductos =
+            descubrir[random_list[index]]["subtitulo"];
+        String price = descubrir[random_list[index]]["precio"];
+        String unidad = descubrir[random_list[index]]["medida"];
+        String image = descubrir[random_list[index]]["image"];
+        String titulo = descubrir[random_list[index]]["titulo"];
+        String calif = descubrir[random_list[index]]["calificacion"];
+        String califtotal =
+            descubrir[random_list[index]]["clasificacion_total"];
 
-        return Card(
-          margin: EdgeInsets.symmetric(horizontal: 3.0),
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Image(
-                      width: 130,
-                      height: 150,
-                      fit: BoxFit.cover,
-                      image: AssetImage(image)),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10.0),
-                  child: Text(titulo,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                          fontSize: 12.0)),
-                ),
-                Container(
-                  child: Text(
-                      _txtDescripcionPoroductos.length > 40
-                          ? _txtDescripcionPoroductos.substring(0, 37) + '...'
-                          : _txtDescripcionPoroductos,
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Colors.grey,
-                          fontSize: 11.0)),
-                ),
-                Row(
+        return GestureDetector(
+            onTap: () {
+              Get.toNamed('/detailsproducts', arguments: {
+                'image': image,
+                'titulo': titulo,
+                'subtitulo': _txtDescripcionPoroductos,
+                'calif': calif,
+                'precio': price,
+                'califtotal': califtotal,
+                'medida': unidad
+              });
+            },
+            child: Card(
+              margin: EdgeInsets.symmetric(horizontal: 3.0),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.star, color: Colors.yellow, size: 15.0),
-                    Text(calif,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.w500)),
-                    Text('(${califtotal} Clasificación)',
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 10.0,
-                            fontWeight: FontWeight.w500)),
-                  ],
-                ),
-                Row(
-                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Image(
+                          errorBuilder: (context, error, stackTrace) => Icon(
+                                Icons.image_not_supported_outlined,
+                                size: 150.0,
+                                color: Colors.grey[100],
+                              ),
+                          width: 130,
+                          height: 150,
+                          fit: BoxFit.contain,
+                          image: AssetImage(image)),
+                    ),
                     Container(
-                        padding: EdgeInsets.only(
-                            left: 10.0, right: 10.0, bottom: 3.0, top: 3.0),
-                        child: Text(
-                          'Agregar al carro',
-                          style: TextStyle(color: Colors.white, fontSize: 11.0),
-                        ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20.0),
-                            color: Theme.of(context).primaryColor)),
+                      padding: EdgeInsets.only(top: 10.0),
+                      child: Text(titulo,
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: 12.0)),
+                    ),
                     Container(
-                      margin: EdgeInsets.only(left: 15.0),
                       child: Text(
-                        '\$${price + ' ' + unidad}',
-                        style: TextStyle(
-                            fontSize: 13.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black),
-                      ),
+                          _txtDescripcionPoroductos.length > 40
+                              ? _txtDescripcionPoroductos.substring(0, 37) +
+                                  '...'
+                              : _txtDescripcionPoroductos,
+                          textAlign: TextAlign.justify,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.grey,
+                              fontSize: 11.0)),
+                    ),
+                    Row(
+                      children: [
+                        Icon(Icons.star, color: Colors.yellow, size: 15.0),
+                        Text(calif,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500)),
+                        Text('(${califtotal} Clasificación)',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 10.0,
+                                fontWeight: FontWeight.w500)),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        GestureDetector(
+                            onTap: () {
+                              Get.snackbar('Snack', 'message');
+                            },
+                            child: Container(
+                                padding: EdgeInsets.only(
+                                    left: 10.0,
+                                    right: 10.0,
+                                    bottom: 3.0,
+                                    top: 3.0),
+                                child: Text(
+                                  'Agregar al carro',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 11.0),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: Theme.of(context).primaryColor))),
+                        Container(
+                          margin: EdgeInsets.only(left: 15.0),
+                          child: Text(
+                            '\$${price + ' ' + unidad}',
+                            style: TextStyle(
+                                fontSize: 13.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
+                          ),
+                        )
+                      ],
                     )
                   ],
-                )
-              ],
-            ),
-          ),
-        );
+                ),
+              ),
+            ));
       },
     ),
   );
@@ -205,26 +237,44 @@ Widget _listNuevasCosas() {
 // lista mas vendido
 Widget _listMasVendidos() {
   List masvendido = productos["masvendido"].toList();
+  final long = 3;
+  final random_list = aletorio(long);
 
   return Container(
-    height: 230,
+    height: 350,
     child: //
-        ListView.builder(
-      shrinkWrap: true,
+        ListView.separated(
+      separatorBuilder: (context, i) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Divider(),
+      ),
       physics: NeverScrollableScrollPhysics(),
       scrollDirection: Axis.vertical,
       itemCount: 3,
       itemBuilder: (BuildContext context, int index) {
-        String image = masvendido[index]["image"];
-        String titulo = masvendido[index]["titulo"];
-        String subtitulo = masvendido[index]["subtitulo"];
-        String calif = masvendido[index]["calificacion"];
-        String precio = masvendido[index]["precio"];
-        String califtotal = masvendido[index]["clasificacion_total"];
-        String medida = masvendido[index]["medida"];
+        String image = masvendido[random_list[index]]["image"];
+        String titulo = masvendido[random_list[index]]["titulo"];
+        String subtitulo = masvendido[random_list[index]]["subtitulo"];
+        String calif = masvendido[random_list[index]]["calificacion"];
+        String precio = masvendido[random_list[index]]["precio"];
+        String califtotal =
+            masvendido[random_list[index]]["clasificacion_total"];
+        String medida = masvendido[random_list[index]]["medida"];
 
         return Container(
             child: ListTile(
+                onTap: () {
+                  Get.toNamed('/detailsproducts', arguments: {
+                    'image': image,
+                    'titulo': titulo,
+                    'subtitulo': subtitulo,
+                    'calif': calif,
+                    'precio': precio,
+                    'califtotal': califtotal,
+                    'medida': medida
+                  });
+                },
+                contentPadding: EdgeInsets.all(15),
                 isThreeLine: true,
                 dense: true,
                 title: Text(titulo),
@@ -250,7 +300,6 @@ Widget _listMasVendidos() {
                       Row(
                         children: [
                           Container(
-                            margin: EdgeInsets.only(left: 15.0),
                             child: Text(
                               '\$${precio + ' ' + medida}',
                               style: TextStyle(
@@ -259,31 +308,34 @@ Widget _listMasVendidos() {
                                   color: Colors.black),
                             ),
                           ),
-                          Container(
-                              margin: EdgeInsets.only(left: 12.0),
-                              padding: EdgeInsets.only(
-                                  left: 10.0,
-                                  right: 10.0,
-                                  bottom: 3.0,
-                                  top: 3.0),
-                              child: Text(
-                                'Agregar al carro',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 11.0),
-                              ),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  color: Theme.of(context).primaryColor)),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                                margin: EdgeInsets.only(left: 12.0),
+                                padding: EdgeInsets.only(
+                                    left: 10.0,
+                                    right: 10.0,
+                                    bottom: 3.0,
+                                    top: 3.0),
+                                child: Text(
+                                  'Agregar al carro',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 11.0),
+                                ),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: Theme.of(context).primaryColor)),
+                          ),
                         ],
                       ),
                     ]),
                 leading: Container(
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(5.0),
+                  child: Card(
+                      elevation: 10.0,
                       child: Image.asset(
                         image,
-                        width: 80,
-                        height: 100,
+                        width: 50,
+                        height: 50,
                       )),
                 )));
       },
@@ -311,7 +363,8 @@ Widget fila(String indicador) {
 // variedad de productos
 Widget _listVariedades() {
   List abarrotes = productos["variedades"].toList();
-
+  final long = abarrotes.length;
+  final random_list = aletorio(long);
   return Container(
     height: 120,
     child: //
@@ -319,8 +372,8 @@ Widget _listVariedades() {
       scrollDirection: Axis.horizontal,
       itemCount: abarrotes.length,
       itemBuilder: (BuildContext context, int index) {
-        String image = abarrotes[index]["image"];
-        String titulo = abarrotes[index]["titulo"];
+        String image = abarrotes[random_list[index]]["image"];
+        String titulo = abarrotes[random_list[index]]["titulo"];
         return Stack(alignment: Alignment.center, children: [
           Container(
             width: 250,
@@ -345,4 +398,28 @@ Widget _listVariedades() {
       },
     ),
   );
+}
+
+//aleatorio
+aletorio(int longitud) {
+  var random = new Random.secure();
+  var i = 0;
+  List<int> lista = new List(longitud);
+  lista[0] = random.nextInt(longitud);
+  while (i < longitud - 1) {
+    var na = random.nextInt(longitud);
+    var j = 0;
+    var r = 0;
+    while (j <= i) {
+      if (lista[j] == na) {
+        r++;
+      }
+      j++;
+    }
+    if (r == 0) {
+      i++;
+      lista[i] = na;
+    }
+  }
+  return lista;
 }

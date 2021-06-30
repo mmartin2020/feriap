@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Profil extends StatelessWidget {
   const Profil({Key key}) : super(key: key);
@@ -36,7 +37,9 @@ class Profil extends StatelessWidget {
                         height: 10.0,
                       ),
                       GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed('/admincuenta');
+                          },
                           child: Text('Administrar mi cuenta',
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
@@ -50,24 +53,47 @@ class Profil extends StatelessWidget {
           ListTile(
             title: Text('Mis favoritos'),
             leading: Icon(Icons.favorite),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
           ),
+          Divider(),
+          ListTile(
+            title: Text('Mis Pedidos'),
+            leading: Icon(Icons.shopping_cart_outlined),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
+          ),
+          Divider(),
           ListTile(
             title: Text('Soy repartidor'),
             leading: Icon(Icons.delivery_dining_rounded),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
           ),
+          Divider(),
           ListTile(
             title: Text('Soy negociante'),
             leading: Icon(Icons.group),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
           ),
+          Divider(),
+          ListTile(
+            title: Text('Soporte'),
+            leading: Icon(Icons.live_help_outlined),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
+          ),
+          Divider(),
           ListTile(
             title: Text('Terminos y condiciones'),
             leading: Icon(Icons.info),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
           ),
+          Divider(),
           ListTile(
-              title: Text('Cerrar sessión'),
-              leading: Icon(
-                Icons.delete_rounded,
-              )),
+            title: Text('Cerrar sessión'),
+            leading: Icon(
+              Icons.delete_rounded,
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_sharp),
+          ),
+          Divider(),
         ],
       ),
     );
