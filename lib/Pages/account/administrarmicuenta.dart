@@ -10,10 +10,21 @@ class admincuenta extends StatefulWidget {
 class _admincuentaState extends State<admincuenta> {
   @override
   Widget build(BuildContext context) {
-    var valor = true;
+    final value = true;
+    final valor = true;
 
     return Scaffold(
       appBar: AppBar(
+        actions: [
+         
+          Switch(
+            value: false,
+            activeColor: Colors.black,
+            onChanged: (value) {
+              Get.changeTheme(ThemeData.dark());
+            },
+          ),
+        ],
         leading: IconButton(
             onPressed: () {
               Get.offAllNamed('/home');
@@ -29,23 +40,46 @@ class _admincuentaState extends State<admincuenta> {
           child: Column(
             children: [
               Card(
-                child: Column(
-                  children: [
-                    Icon(
-                      Icons.person,
-                      size: 200,
-                      color: Colors.grey,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text('Nombre: Juanita Perez'),
-                        Text('jperez@gmail.com'),
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                  ],
-                ),
+                child: Stack(children: [
+                  Positioned(
+                      top: 5.0,
+                      right: 5.0,
+                      child: Column(
+                        children: [
+                          Text(value ? 'Oscuro' : 'light'),
+                          Switch(
+                            value: value,
+                            activeColor: Colors.black,
+                            onChanged: (value) {
+                              setState(() {
+                                value = !value;
+                                value
+                                    ? Get.changeTheme(ThemeData.dark())
+                                    : Get.changeTheme(ThemeData.light());
+                              });
+                            },
+                          ),
+                        ],
+                      )),
+                  SizedBox(height: 20),
+                  Column(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        size: 200,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text('Nombre: Juanita Perez'),
+                          Text('jperez@gmail.com'),
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                    ],
+                  ),
+                ]),
               ),
               // mis direcciones
               ListTile(

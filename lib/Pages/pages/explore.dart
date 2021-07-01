@@ -22,10 +22,10 @@ class Explore extends StatelessWidget {
                 onTap: () => Get.toNamed('/search'),
                 child: Container(
                   padding: EdgeInsets.only(
-                      left: 10.0, right: 100.0, bottom: 7.0, top: 7.0),
+                      left: 10.0, right: 150.0, bottom: 7.0, top: 7.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(40.0),
-                      color: Colors.grey.withOpacity(0.3)),
+                      color: Colors.grey.withOpacity(0.2)),
                   child: Row(children: [
                     Icon(Icons.search),
                     Text('Buscar...'),
@@ -164,7 +164,7 @@ Widget _listNuevasCosas() {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
-                              fontSize: 12.0)),
+                              fontSize: 13.0)),
                     ),
                     Container(
                       child: Text(
@@ -176,7 +176,7 @@ Widget _listNuevasCosas() {
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.grey,
-                              fontSize: 11.0)),
+                              fontSize: 13.0)),
                     ),
                     Row(
                       children: [
@@ -184,12 +184,12 @@ Widget _listNuevasCosas() {
                         Text(calif,
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 12.0,
+                                fontSize: 13.0,
                                 fontWeight: FontWeight.w500)),
                         Text('(${califtotal} Clasificación)',
                             style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 10.0,
+                                fontSize: 11.0,
                                 fontWeight: FontWeight.w500)),
                       ],
                     ),
@@ -218,7 +218,7 @@ Widget _listNuevasCosas() {
                           child: Text(
                             '\$${price + ' ' + unidad}',
                             style: TextStyle(
-                                fontSize: 13.0,
+                                fontSize: 16.0,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black),
                           ),
@@ -276,7 +276,6 @@ Widget _listMasVendidos() {
                 },
                 contentPadding: EdgeInsets.all(15),
                 isThreeLine: true,
-                dense: true,
                 title: Text(titulo),
                 subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -288,22 +287,26 @@ Widget _listMasVendidos() {
                           Text(calif,
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w500)),
                           Text(' (${califtotal} Clasificación)',
                               style: TextStyle(
                                   color: Colors.grey,
-                                  fontSize: 10.0,
+                                  fontSize: 12.0,
                                   fontWeight: FontWeight.w500)),
                         ],
                       ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             child: Text(
                               '\$${precio + ' ' + medida}',
                               style: TextStyle(
-                                  fontSize: 13.0,
+                                  fontSize: 16.0,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black),
                             ),
@@ -334,8 +337,8 @@ Widget _listMasVendidos() {
                       elevation: 10.0,
                       child: Image.asset(
                         image,
-                        width: 50,
-                        height: 50,
+                        width: 70,
+                        height: 80,
                       )),
                 )));
       },
@@ -351,7 +354,7 @@ Widget fila(String indicador) {
       },
       child: Row(
         children: [
-          Text('Mostrar todos', style: TextStyle(fontSize: 10.0)),
+          Text('Mostrar todos', style: TextStyle(fontSize: 12.0)),
           Icon(
             Icons.play_arrow_rounded,
             size: 12.0,
@@ -423,3 +426,5 @@ aletorio(int longitud) {
   }
   return lista;
 }
+
+

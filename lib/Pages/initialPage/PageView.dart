@@ -1,8 +1,7 @@
 // Inipage
 import 'dart:async';
-import 'package:Feriap/Pages/account/login.dart';
-import 'package:Feriap/initialPage/PageData.dart';
-import 'package:Feriap/initialPage/PageSlider.dart';
+import 'package:Feriap/Pages/Data/PageSliderData.dart';
+import 'package:Feriap/Pages/initialPage/PageSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,7 +45,7 @@ class _InitPageState extends State<InitPage> {
 
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context).size;
+  
     return Stack(alignment: AlignmentDirectional.bottomCenter, children: [
       PageView.builder(
         onPageChanged: _onPageChanged,
@@ -80,26 +79,15 @@ class _InitPageState extends State<InitPage> {
                 SharedPreferences preferences =
                     await SharedPreferences.getInstance();
                 preferences.setBool('key', false);
-                Get.to(Login());
+                Get.toNamed('/login');
               },
-              child: Text('Empezar a explorar'),
+              child: Text('Empezar a explorar',style:TextStyle(fontSize:17.0)),
               style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(
-                      Theme.of(context).primaryColor)),
-            ),
-            SizedBox(height: media.height * 0.037),
-            Row(
-              children: [
-                Expanded(
-                  child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Quiero crear una cuenta',
-                        style: TextStyle(
-                            color: Colors.grey, fontSize: media.height * 0.015),
-                      )),
-                ),
-              ],
+                  backgroundColor:
+                      MaterialStateProperty.all(Theme.of(context).primaryColor),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0)))),
             ),
           ],
         ),

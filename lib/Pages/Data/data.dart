@@ -104,8 +104,8 @@ Map<String, dynamic> productos = {
       'image': 'lib/assets/images/azucar1.jpg',
       'calificacion': '3.5',
       'clasificacion_total': '502',
-      'precio': '7.700',
-      'medida': 'kg'
+      'precio': '700',
+      'medida': '/kg'
     }
   },
 //  Variedad de productos
@@ -129,7 +129,7 @@ Map<String, dynamic> productos = {
       'calificacion': '',
       'clasificacion_total': '',
       'precio': '1.500',
-      'medida': 'kg',
+      'medida': '/kg',
       'marca': ''
     },
     {
@@ -140,7 +140,7 @@ Map<String, dynamic> productos = {
       'calificacion': '',
       'clasificacion_total': '',
       'precio': '1.500',
-      'medida': 'kg',
+      'medida': '/kg',
       'marca': ''
     },
     {
@@ -151,7 +151,7 @@ Map<String, dynamic> productos = {
       'calificacion': '',
       'clasificacion_total': '',
       'precio': '1.500',
-      'medida': 'kg',
+      'medida': '/kg',
       'marca': ''
     },
     {
@@ -168,7 +168,7 @@ Map<String, dynamic> productos = {
   },
 // Recomendada
   "recomendado": {
-    "detergente": {
+    
       {
         'idproducts': 'A016',
         'titulo': 'Detergente VALOR magic',
@@ -180,6 +180,17 @@ Map<String, dynamic> productos = {
         'medida': 'c/u',
         'marca': 'Magic'
       },
+       {
+      'idproducts': 'A08',
+      'titulo': 'Coca-cola',
+      'subtitulo': 'Bebida 1,5 lt desechable',
+      'image': 'lib/assets/images/bebida1.jpg',
+      'calificacion': '4.8',
+      'clasificacion_total': '3500',
+      'precio': '1.800',
+      'medida': 'c/u'
+    },
+    
       {
         'idproducts': 'A017',
         'titulo': 'Detergente matic polvo',
@@ -192,6 +203,16 @@ Map<String, dynamic> productos = {
         'marca': 'magic'
       },
       {
+      'idproducts': '09',
+      'titulo': 'Café instantáneo',
+      'subtitulo': 'Nescafé tradición lata 170 g',
+      'image': 'lib/assets/images/cafe1.jpg',
+      'calificacion': '4.9',
+      'clasificacion_total': '4200',
+      'precio': '4.500',
+      'medida': 'c/u'
+    },
+      {
         'idproducts': 'A018',
         'titulo': 'Pack Detergente',
         'subtitulo': "Pack detergente 3lt OMO",
@@ -203,5 +224,5 @@ Map<String, dynamic> productos = {
         'marca': 'Omo'
       },
     }
-  },
+  
 };

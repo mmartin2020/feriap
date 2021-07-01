@@ -136,8 +136,9 @@ class Login extends StatelessWidget {
                           child: Text(
                             '¿Has olvidado tu cuenta?',
                             style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal),
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         )),
                     SizedBox(height: 5.0),
@@ -146,10 +147,10 @@ class Login extends StatelessWidget {
                       children: [
                         Text('¿No tienes una cuenta?',
                             style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.normal)),
+                              color: Colors.black,
+                            )),
                         SizedBox(
-                          width: 5.0,
+                          width: 10.0,
                         ),
                         GestureDetector(
                             onTap: () => Get.toNamed('/createAccount'),

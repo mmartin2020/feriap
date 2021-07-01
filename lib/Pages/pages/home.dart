@@ -1,9 +1,9 @@
+import 'package:Feriap/Pages/Data/textdata.dart';
 import 'package:Feriap/Pages/pages/explore.dart';
 import 'package:Feriap/Pages/pages/offer.dart';
 import 'package:Feriap/Pages/pages/profil.dart';
 import 'package:Feriap/Pages/pages/shop.dart';
 import 'package:Feriap/Pages/pages/shopping_cart.dart';
-import 'package:Feriap/Pages/textdata.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -30,7 +30,6 @@ class _HomeViewState extends State<Home> {
           ShoppingCart(),
           Offer(),
           Profil(),
-         
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

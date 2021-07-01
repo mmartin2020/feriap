@@ -63,7 +63,6 @@ class PageSlider {
                                 ]),
                           )
                         : SvgPicture.asset(this._image,
-                           
                             placeholderBuilder: (_) =>
                                 CircularProgressIndicator(),
                             width: media.width * 0.1,
@@ -75,14 +74,15 @@ class PageSlider {
                   Text(
                     this._title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: media.height * 0.02,
-                        fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: media.height * 0.02,
                   ),
-                  Text(this._subtitle, textAlign: TextAlign.justify),
+                  Text(this._subtitle,
+                      textAlign: TextAlign.justify,
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w300)),
                   SizedBox(
                     height: media.height * 0.05,
                   )

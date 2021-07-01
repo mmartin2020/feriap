@@ -65,7 +65,7 @@ class forgetpassword extends StatelessWidget {
                 ));
               },
             ),
-            SizedBox(height: 100.0),
+            SizedBox(height: 60.0),
             Text(
                 'En unos minutos le llegará a su correo un mensaje que contendrá el link para poder recuperar su cuenta por favor revisar su correo.')
           ],

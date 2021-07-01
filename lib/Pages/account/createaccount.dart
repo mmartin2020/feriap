@@ -41,7 +41,7 @@ class CreateAccount extends StatelessWidget {
             // email
             _inputT(
                 Icon(
-                  Icons.person,
+                  Icons.email,
                   size: 12.0,
                 ),
                 'Correo',

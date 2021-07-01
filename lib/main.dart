@@ -1,8 +1,12 @@
 import 'package:Feriap/Pages/pageroutes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
+
   runApp(GetMaterialApp(
     theme: ThemeData(
       visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -18,7 +22,7 @@ main() {
       ),
     ),
     debugShowCheckedModeBanner: false,
-    initialRoute: '/login',
+    initialRoute: '/initialpage',
     getPages: routes,
   ));
 }
