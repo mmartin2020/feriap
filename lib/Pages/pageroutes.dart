@@ -2,7 +2,7 @@ import 'package:Feriap/Pages/account/createaccount.dart';
 import 'package:Feriap/Pages/account/forgetpassword.dart';
 import 'package:Feriap/Pages/account/login.dart';
 import 'package:Feriap/Pages/initialPage/PageView.dart';
-import 'package:Feriap/Pages/pages/Home.dart';
+import 'package:Feriap/Pages/pages/home.dart';
 import 'package:Feriap/Pages/account/administrarmicuenta.dart';
 import 'package:Feriap/Pages/pages/condiciones.dart';
 import 'package:Feriap/Pages/pages/categoria.dart';
