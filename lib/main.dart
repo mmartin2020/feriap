@@ -1,22 +1,22 @@
-import 'package:Feriap/Pages/pageroutes.dart';
+import 'package:feriap/pageroutes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-main() {
+main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   runApp(GetMaterialApp(
+    title: 'Flashliver',
     theme: ThemeData(
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      accentColor: Color(0xFFDB5C00).withOpacity(0.1),
-      splashColor: Color(0xFFDB5C00).withOpacity(0.2),
-      primaryColor: Color(0xFFDB5C00),
-      highlightColor: Color(0xFFDB5C00),
-      buttonTheme: ButtonThemeData(
-        buttonColor: Color(0xFFDB5C00),
-      ),
+      primarySwatch: Colors.deepOrange,
+     
       inputDecorationTheme: InputDecorationTheme(
         focusColor: Color(0xFFDB5C00),
       ),
@@ -24,5 +24,7 @@ main() {
     debugShowCheckedModeBanner: false,
     initialRoute: '/initialpage',
     getPages: routes,
+
+    
   ));
 }
