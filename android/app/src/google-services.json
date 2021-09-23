@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "387564755505",
+    "project_id": "flashliver",
+    "storage_bucket": "flashliver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387564755505:android:90ab9c95c43097aee45310",
+        "android_client_info": {
+          "package_name": "com.example.feriap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387564755505-tpp6pjqv515le9tckrekrd9g4fmu2pm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.feriap",
+            "certificate_hash": "2279bf78459cf59b75a0ef14abdc990d3cd5cd47"
+          }
+        },
+        {
+          "client_id": "387564755505-llv0psuinti5jj2b274o5flap0lg34mi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWqit6CfbNtydLDL41fNgEJoGmOK2fX9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387564755505-llv0psuinti5jj2b274o5flap0lg34mi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
