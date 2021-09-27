@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "387564755505-9lcmr3v5o4f35tktk0mc6l5kv2utcpcq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.feriap",
+            "certificate_hash": "b4583ea045edf6ac3b2819b7373127408d7125dd"
+          }
+        },
+        {
           "client_id": "387564755505-tpp6pjqv515le9tckrekrd9g4fmu2pm3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -1,23 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginController extends GetxController {
-  static final emailcontroller = TextEditingController();
-  static final passwdcontroller = TextEditingController();
+  static final _emailcontroller = TextEditingController();
+  static final _passwdcontroller = TextEditingController();
   static final _formkey = GlobalKey<FormState>();
   static final _tokenController = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
 //Code to signin with email and password
-  Future<void> _signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword() async {
+    print('email:' + _emailcontroller.text);
+    print('pass:' + _passwdcontroller.text);
     try {
       final User user = (await _auth.signInWithEmailAndPassword(
-        email: emailcontroller.text,
-        password: passwdcontroller.text,
+        email: _emailcontroller.text,
+        password: _passwdcontroller.text,
       ))
           .user;
 
@@ -28,27 +29,31 @@ class LoginController extends GetxController {
                 RefreshProgressIndicator(),
                 Text('Cargando...')
               ])));
+      Get.offAllNamed('/home');
     } catch (e) {
-      Get.snackbar('Error', '$e',
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.black,
-          showProgressIndicator: true);
+      print('$e');
+      Get.snackbar(
+        'Error',
+        '$e',
+        snackPosition: SnackPosition.BOTTOM,
+      );
     }
   }
 
 // Code to signin to Facebook
 
-  Future<void> _signInWithFacebook() async {
+  Future<void> signInWithFacebook() async {
     try {
       final AuthCredential credential = FacebookAuthProvider.credential(
         _tokenController.text,
       );
       final User user = (await _auth.signInWithCredential(credential)).user;
-      Get.snackbar('Info', 'Signin succefully',
+      Get.snackbar('', 'Signin succefully',
           snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.black,
           showProgressIndicator: true);
     } catch (e) {
+      print('$e');
       Get.snackbar('Error', '$e',
           snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.black,
@@ -57,7 +62,7 @@ class LoginController extends GetxController {
   }
 
 // Code to signin with google
-  Future<void> _signInWithGoogle() async {
+  Future<void> signInWithGoogle() async {
     try {
       UserCredential userCredential;
 
@@ -72,10 +77,10 @@ class LoginController extends GetxController {
 
       final user = userCredential.user;
 
-      Get.snackbar('info', 'Sign in with Google: ${user.uid}',
-          snackPosition: SnackPosition.BOTTOM);
+      Get.offAllNamed('/home');
     } catch (e) {
-      Get.snackbar('Error', 'Failed to sign in with Google: $e',
+      print('$e');
+      Get.snackbar('Error para iniciar sesion con Google', '$e',
           snackPosition: SnackPosition.BOTTOM);
     }
   }
@@ -84,6 +89,7 @@ class LoginController extends GetxController {
 
   Future<void> _signout() async {
     await _auth.signOut();
+    // await GoogleSignIn().disconnect();
   }
 
   Future<void> signOut() {
@@ -99,9 +105,14 @@ class LoginController extends GetxController {
 
   @override
   void dispose() {
-    emailcontroller.dispose();
-    passwdcontroller.dispose();
+    _emailcontroller.dispose();
+    _passwdcontroller.dispose();
     _tokenController.dispose();
     super.dispose();
   }
+
+  get emailcontroller => _emailcontroller;
+  get passwdcontroller => _passwdcontroller;
+  get tokenController => _tokenController;
+  get formkey => _formkey;
 }

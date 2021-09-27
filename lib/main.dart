@@ -9,22 +9,21 @@ main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  await FirebaseAuth.instance.useAuthEmulator('localhost', 9090);
+  final _auth = FirebaseAuth.instance;
+  final User user = _auth.currentUser;
 
   runApp(GetMaterialApp(
     title: 'Flashliver',
     theme: ThemeData(
       visualDensity: VisualDensity.adaptivePlatformDensity,
       primarySwatch: Colors.deepOrange,
-     
       inputDecorationTheme: InputDecorationTheme(
         focusColor: Color(0xFFDB5C00),
       ),
     ),
     debugShowCheckedModeBanner: false,
-    initialRoute: '/initialpage',
+    initialRoute: user == null ? '/initialpage' : '/home',
     getPages: routes,
-
-    
   ));
 }

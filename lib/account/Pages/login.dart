@@ -1,15 +1,12 @@
 import 'package:feriap/account/Controllers/loginController.dart';
-import 'package:feriap/account/GlobalsBindings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  final _logincontroller = Get.put(LoginController());
-
+class Login extends GetWidget {
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size.height;
-
+    LoginController loginController = LoginController();
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -49,13 +46,14 @@ class Login extends StatelessWidget {
                 ),
                 Container(
                     child: Form(
-                  key: _logincontroller._formkey,
+                  key: loginController.formkey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _inputT(
-                          _logincontroller.emailcontroller,
+                          'email',
+                          loginController.emailcontroller,
                           Icon(
                             Icons.person,
                             size: 12.0,
@@ -64,14 +62,22 @@ class Login extends StatelessWidget {
                           false,
                           context),
                       SizedBox(height: 12.0),
-                      _inputT( _logincontroller.passwdcontroller,Icon(Icons.lock, size: 12.0),
-                          'Ingresa tu contraseña ', true, context),
+                      _inputT(
+                          'passwd',
+                          loginController.passwdcontroller,
+                          Icon(Icons.lock, size: 12.0),
+                          'Ingresa tu contraseña ',
+                          true,
+                          context),
                       SizedBox(
                         height: 20.0,
                       ),
                       ElevatedButton(
                         child: Text('Iniciar sessión'),
-                        onPressed: () => Get.offAllNamed('/home'),
+                        onPressed: () {
+                          if (loginController.formkey.currentState.validate())
+                            loginController.signInWithEmailAndPassword();
+                        },
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 Theme.of(context).primaryColor),
@@ -134,7 +140,7 @@ class Login extends StatelessWidget {
                                     borderRadius:
                                         BorderRadius.circular(20.0)))),
                         label: Text('Loggear con Google'),
-                        onPressed: () {},
+                        onPressed: () => loginController.signInWithGoogle(),
                         icon: Icon(Icons.g_mobiledata_outlined),
                       ),
                       SizedBox(height: media * 0.07),
@@ -183,17 +189,18 @@ class Login extends StatelessWidget {
     );
   }
 
-  Widget _inputT(TextEditingController textEditingController, Icon icon,
-      String text, bool obscur, BuildContext context) {
+  Widget _inputT(String _key, TextEditingController textEditingController,
+      Icon icon, String text, bool obscur, BuildContext context) {
     return Container(
       child: TextFormField(
+          controller: textEditingController,
           validator: (String value) {
-            if (value.isEmpty) {
-              return "*El campo no puede estar vacio*";
-            } else if (!value.isEmail) {
-              return "*Formato de email invalido*";
+            if (value.isEmpty || value == null) {
+              return "Obligatorio";
+            } else if (_key == 'email' && !value.isEmail) {
+              return "Email invalido";
             } else {
-              return "";
+              return null;
             }
           },
           textInputAction: TextInputAction.next,
